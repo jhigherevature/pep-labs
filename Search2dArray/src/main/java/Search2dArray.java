@@ -10,6 +10,11 @@ public class Search2dArray {
      * @return true if nums contains target, and false otherwise.
      */
     public boolean search(int[][] nums, int target){
+        for (int[] arr : nums)
+            for (int a : arr)
+                if (a == target)
+                    return true;
+                    
         return false;
     }
 }
