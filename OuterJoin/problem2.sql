@@ -1,3 +1,2 @@
 /* seems like more broken tests... */
-SELECT * FROM class RIGHT OUTER JOIN textbook
-ON class.class_title = textbook.class_title;
+SELECT * FROM class RIGHT OUTER JOIN textbook ON class.class_title = textbook.class_title;
