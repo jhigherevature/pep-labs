@@ -1,5 +1,7 @@
 package com.revature;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.javalin.Javalin;
 
 /**
@@ -18,6 +20,9 @@ public class JavalinSingleton {
          */
         app.post("/problem1", ctx -> {
                 //implement logic here
+                Song s = new ObjectMapper().readValue(ctx.body(), Song.class);
+
+                ctx.result(s.getArtistName());
         });
 
         /**
@@ -29,6 +34,14 @@ public class JavalinSingleton {
          */
         app.post("/problem2", ctx -> {
                //implement logic here
+               ObjectMapper om = new ObjectMapper();
+               Song s = om.readValue(ctx.body(), Song.class);
+
+               ctx.contentType("application/json");
+
+               s.setArtistName("Beatles");
+
+               ctx.result( om.writeValueAsString(s) );
         });
 
 
