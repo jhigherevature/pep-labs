@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class Isogram {
     /**
@@ -13,6 +14,15 @@ public class Isogram {
      * @return true if str is an isogram, false otherwise.
      */
     public boolean isIsogram(String str){
-        return false;
+        HashMap<String, Integer> hm = new HashMap<String, Integer>();
+        for (String s : str.split("")) {
+            if (hm.containsKey(s)) hm.put(s,hm.get(s) + 1);
+            else hm.put(s, 1);
+        }
+
+        for (Map.Entry<String, Integer> e : hm.entrySet())
+            if (e.getValue() > 1) return false;
+
+        return true;
     }
 }
